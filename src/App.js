@@ -1,9 +1,23 @@
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { requestData } from './redux/actions/data.actions';
+import Gallery from './components/gallery/gallery';
+import Header from './components/header/header';
 import './App.css';
 
-function App() {
+const App = () => {
+
+  const dispatch = useDispatch();
+  const images = useSelector(state => state.data.images);
+
+  useEffect(() => {
+    dispatch(requestData());
+  }, []);
+
   return (
     <div>
-      <h1>Hello World</h1>
+      <Header/>
+      <Gallery images={images}/>
     </div>
   );
 }

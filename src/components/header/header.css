@@ -1,0 +1,34 @@
+.header {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  max-width: 1200px;
+  align-content: center;
+  margin: 0 auto;
+  padding: 10px 0;
+}
+
+.logo {
+  font-family: 'Oleo Script Swash Caps', cursive;
+  font-size: 28px;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.header ul {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: flex-end;
+}
+
+.header ul li {
+  justify-self: flex-end;
+  align-self: center;
+}
+
+.header ul li a {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.logo:hover, .header ul li a:hover {
+  color: rgba(255, 255, 255, 1);
+}
+

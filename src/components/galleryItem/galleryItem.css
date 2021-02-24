@@ -1,0 +1,28 @@
+.gallery-item {
+  border: 1px solid crimson;
+}
+
+.gallery-item::before {
+  content: "";
+  display: inline-block;
+  width: 1px;
+  height: 0;
+  padding-bottom: calc(100% / 1);
+}
+
+.div-7 {
+  grid-row: span 2;
+  /* grid-column: span 2; */
+}
+
+.div-1 {
+  grid-column: span 2;
+}
+
+.div-1::before {
+  content: "";
+  display: none;
+  width: 1px;
+  height: 0;
+  padding-bottom: 0;
+}
