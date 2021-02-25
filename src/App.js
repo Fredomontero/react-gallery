@@ -9,7 +9,7 @@ import './App.css';
 const App = () => {
 
   const dispatch = useDispatch();
-  const images = useSelector(state => state.data.images);
+  const pages = useSelector(state => state.pages);
 
   useEffect(() => {
     dispatch(requestData());
@@ -25,7 +25,13 @@ const App = () => {
   return (
     <div>
       <Header/>
-      <Gallery images={images}/>
+      {
+        (pages[0]) ? (
+          <Gallery pages={pages}/>
+        ) : (
+          <p>Loading...</p>
+        )
+      }
       <Paginator/>
     </div>
   );

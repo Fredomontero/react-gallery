@@ -1,13 +1,16 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import GalleryItem from '../galleryItem/galleryItem';
 import './gallery.css';
 
-const Gallery = ({ images }) => {
+const Gallery = ({ pages }) => {
+
+  const pageNumber = useSelector(state => state.page);
 
   return(
     <div className="gallery container" >
       {
-        images.map((item, index) => (
+        pages[pageNumber - 1].images.map((item, index) => (
           <GalleryItem className="g-item" key={item.id} index={index} item={item} />
         ))
       }

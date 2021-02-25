@@ -10,7 +10,12 @@ function* loadData(action) {
       yield put(requestDataError(data.errors[0].message));
     }else{
       console.log("DATA: ", data);
-      yield put(requestDataSuccess(data));
+      let page = {
+        id: Date.now(),
+        images: [...data],
+        page: null
+      }
+      yield put(requestDataSuccess(page));
     }
   }catch(error){
     yield put(requestDataError(error));
