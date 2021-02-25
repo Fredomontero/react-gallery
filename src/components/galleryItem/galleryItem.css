@@ -1,5 +1,7 @@
 .gallery-item {
   border: 1px solid crimson;
+  background-position: center;
+  background-size: cover;
 }
 
 .gallery-item::before {
@@ -15,11 +17,11 @@
   /* grid-column: span 2; */
 }
 
-.div-1 {
+.div-2 {
   grid-column: span 2;
 }
 
-.div-1::before {
+.div-2::before {
   content: "";
   display: none;
   width: 1px;
