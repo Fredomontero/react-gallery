@@ -13,3 +13,8 @@ export const requestDataError = error => ({
   type: type.LOAD_DATA_ERROR,
   payload: error
 });
+
+export const updatePageNumber = (pageNumber) => ({
+  type: type.UPDATE_PAGE_NUMBER,
+  payload: pageNumber
+});

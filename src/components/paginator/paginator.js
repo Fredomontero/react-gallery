@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { updatePageNumber } from '../../redux/actions/data.actions';
 import './paginator.css';
 
 const Paginator = () => {
@@ -13,7 +14,7 @@ const Paginator = () => {
   const renderButtons = () => {
     let pageNumbers = (pageNumber <= 2) ? [1, 2, 3] : [ pageNumber - 1, pageNumber, pageNumber + 1 ];
     return pageNumbers.map((page, index) => (
-        <button key={index} onClick={() => console.log(page)} disabled={isDisabled(page)}>
+        <button key={index} onClick={() => dispatch(updatePageNumber(page))} disabled={isDisabled(page)}>
           {page}
         </button>
     ));
@@ -21,9 +22,9 @@ const Paginator = () => {
 
   return(
     <div className="container paginator">
-      <button>Back</button>
+      <button onClick={() => dispatch(updatePageNumber(pageNumber - 1))} disabled={pageNumber === 1}>Back</button>
       { renderButtons() }
-      <button>Next</button>
+      <button onClick={() => dispatch(updatePageNumber(pageNumber + 1))} >Next</button>
     </div>
   )
 };

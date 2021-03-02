@@ -9,24 +9,33 @@ import './App.css';
 const App = () => {
 
   const dispatch = useDispatch();
-  const pages = useSelector(state => state.pages);
+  let pages = useSelector(state => state.pages);
+  let pageNumber = useSelector(state => state.page);
 
   useEffect(() => {
     dispatch(requestData());
+  }, []);
+
+  useEffect(() => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [pages, pageNumber]);
 
   const handleScroll = () => {
     if(window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight) return;
-    console.log('Fetch more items');
+    if(pages.length <= pageNumber){
+      console.log('Fetching Data');
+      console.log("Current pages: ", pages);
+      dispatch(requestData());
+    }
   }
 
   return (
     <div>
       <Header/>
+      <button onClick={()=>console.log("Pages: ", pages)} >Click me</button>
       {
-        (pages[0]) ? (
+        (pages[pageNumber - 1]) ? (
           <Gallery pages={pages}/>
         ) : (
           <p>Loading...</p>

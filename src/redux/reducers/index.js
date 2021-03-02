@@ -10,10 +10,14 @@ const rootReducer = (state = initialState, action) => {
     case types.LOAD_DATA_SUCCESS:
       let page = action.payload;
       page.page = state.pages.length;
-      console.log("PAGE: ", page);
       return {
         ...state,
         pages: [...state.pages, page]
+      }
+    case types.UPDATE_PAGE_NUMBER:
+      return {
+        ...state,
+        page: action.payload
       }
     default:
       return state;

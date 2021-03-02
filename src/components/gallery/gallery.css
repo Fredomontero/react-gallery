@@ -2,10 +2,9 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
-  background-color: blueviolet;
   grid-auto-flow: dense;
 }
 
 .g-item {
-  background-color: cyan;
+  background-color: red;
 }

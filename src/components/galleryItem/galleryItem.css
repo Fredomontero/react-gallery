@@ -9,22 +9,40 @@
   display: inline-block;
   width: 1px;
   height: 0;
-  padding-bottom: calc(100% / 1);
+  padding-bottom: calc(100%);
 }
 
-.div-7 {
+/* .div-7 {
   grid-row: span 2;
-  /* grid-column: span 2; */
-}
+} */
 
-.div-2 {
+/* .div-2 {
   grid-column: span 2;
-}
+} */
 
-.div-2::before {
+/* .div-2::before {
   content: "";
   display: none;
   width: 1px;
   height: 0;
   padding-bottom: 0;
+} */
+
+
+.horizontal {
+  grid-column: span 2;
+}
+
+
+.horizontal::before {
+  content: "";
+  display: inline-block;
+  width: 1px;
+  height: 0;
+  padding-bottom: calc(50%);
+}
+
+
+.vertical {
+  grid-row: span 2;
 }
