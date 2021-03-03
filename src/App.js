@@ -33,7 +33,6 @@ const App = () => {
   return (
     <div>
       <Header/>
-      <button onClick={()=>console.log("Pages: ", pages)} >Click me</button>
       {
         (pages[pageNumber - 1]) ? (
           <Gallery pages={pages}/>

@@ -19,3 +19,7 @@
 .paginator button:focus {
   outline: none;
 }
+
+.paginator .selected {
+  color: rgba(171, 255, 255, 0.8);
+}

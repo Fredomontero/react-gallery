@@ -1,7 +1,12 @@
 .gallery-item {
-  border: 1px solid crimson;
   background-position: center;
   background-size: cover;
+  transition: all .3s ease;
+  cursor: pointer;
+}
+
+.gallery-item:hover {
+  transform: scale(1.025);
 }
 
 .gallery-item::before {
@@ -11,23 +16,6 @@
   height: 0;
   padding-bottom: calc(100%);
 }
-
-/* .div-7 {
-  grid-row: span 2;
-} */
-
-/* .div-2 {
-  grid-column: span 2;
-} */
-
-/* .div-2::before {
-  content: "";
-  display: none;
-  width: 1px;
-  height: 0;
-  padding-bottom: 0;
-} */
-
 
 .horizontal {
   grid-column: span 2;
