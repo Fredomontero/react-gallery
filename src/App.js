@@ -17,6 +17,7 @@ const App = () => {
   }, []);
 
   useEffect(() => {
+    console.log(pages);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [pages, pageNumber]);
