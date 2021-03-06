@@ -4,6 +4,8 @@ import { requestData } from './redux/actions/data.actions';
 import Header from './components/header/header';
 import Gallery from './components/gallery/gallery';
 import Paginator from './components/paginator/paginator';
+import { Route, useLocation } from "react-router-dom";
+import queryString from 'query-string';
 import './App.css';
 
 const App = () => {
@@ -12,12 +14,15 @@ const App = () => {
   let pages = useSelector(state => state.pages);
   let pageNumber = useSelector(state => state.page);
 
+  let location = useLocation();
+  let parsed = queryString.parse(location.search);
+  let galleryID = location.pathname.split("/")[2];
+
   useEffect(() => {
-    dispatch(requestData());
+    dispatch(requestData({galleryId: galleryID, count: parsed.count, page: parsed.page}));
   }, []);
 
   useEffect(() => {
-    console.log(pages);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [pages, pageNumber]);
@@ -27,7 +32,7 @@ const App = () => {
     if(pages.length <= pageNumber){
       console.log('Fetching Data');
       console.log("Current pages: ", pages);
-      dispatch(requestData());
+      dispatch(requestData({galleryId: galleryID, count: parsed.count, page: pageNumber + 1}));
     }
   }
 
@@ -36,7 +41,7 @@ const App = () => {
       <Header/>
       {
         (pages[pageNumber - 1]) ? (
-          <Gallery pages={pages}/>
+          <Route path="/gallery/:galleryID" render={()=><Gallery pages={pages}/>} />
         ) : (
           <p>Loading...</p>
         )

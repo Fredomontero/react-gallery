@@ -1,7 +1,8 @@
 import * as type from '../types/data.types';
 
-export const requestData = () => ({
-  type: type.LOAD_DATA_REQUEST
+export const requestData = (params) => ({
+  type: type.LOAD_DATA_REQUEST,
+  payload: params
 });
 
 export const requestDataSuccess = data => ({
