@@ -7,7 +7,7 @@ import { galleries } from '../../testData';
 function* loadData(action) {
   let { galleryId, page, count } = action.payload;
   try{
-    let data = galleries[galleryId].pages[page-1];
+    let data = galleries[galleryId].pages[(page-1)%3];
     data.images = data.images.splice(0, count);
     if(data.errors){
       yield put(requestDataError(data.errors[0].message));
