@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import GalleryItem from './galleryItem';
-import { pages } from '../../testData';
+import { galleries } from '../../testData';
 
 
 describe('Gallery Item', () => {

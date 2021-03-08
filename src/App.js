@@ -15,7 +15,7 @@ const App = () => {
   let pageNumber = useSelector(state => state.page);
 
   let location = useLocation();
-  let parsed = queryString.parse(location.search);
+  let parsed = queryString.parse(location.search) ?? { count: 10, page: 1 };
   let galleryID = location.pathname.split("/")[2];
 
   useEffect(() => {

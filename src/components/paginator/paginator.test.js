@@ -1,11 +1,19 @@
 import React from 'react';
 import { Provider } from 'react-redux';
+import { BrowserRouter } from "react-router-dom";
 import { mount } from 'enzyme';
 import configureStore from 'redux-mock-store';
 import Paginator from './paginator';
 
 const middlewares = [];
 const mockStore = configureStore(middlewares);
+
+jest.mock("react-router-dom", () => ({
+  ...jest.requireActual("react-router-dom"),
+  useLocation: () => ({
+    pathname: "/gallery/cats/?count=10&page=1"
+  })
+}));
 
 describe('Paginator', () => {
 
@@ -18,7 +26,9 @@ describe('Paginator', () => {
 
   const getWrapper = () => mount(
     <Provider store={store}>
-      <Paginator/>
+      <BrowserRouter>
+        <Paginator/>
+      </BrowserRouter>
     </Provider>
   );
 

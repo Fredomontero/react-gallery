@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import { mount, shallow } from 'enzyme';
 import configureStore from 'redux-mock-store';
 import Gallery from './gallery';
-import { pages } from '../../testData';
+import { galleries } from '../../testData';
 
 const middlewares = [];
 const mockStore = configureStore(middlewares);
@@ -12,8 +12,10 @@ describe('Gallery', () => {
 
   let wrapper;
 
+  let pages = galleries.cats.pages;
+
   const store = mockStore({
-    pages: pages,
+    pages: galleries.cats.pages,
     page: 1
   });
 
