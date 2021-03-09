@@ -1,0 +1,13 @@
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-auto-flow: dense;
+  gap: 1px;
+}
+
+.grid-item-test {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
